@@ -21,8 +21,10 @@ export const THROTTLE_CONFIG = {
 export const LEAD_DUPLICATE_WINDOW_MS = 5 * 60 * 1000; // 5 minutes
 
 export const DEFAULT_PORT = 3000;
-export const DEFAULT_CORS_ORIGIN =
-  process.env.CORS_ORIGIN || 'http://localhost:5173';
+export const DEFAULT_CORS_ORIGIN = [
+  'http://localhost:5173',
+  'coupon-based-lead-form-web-rohk-i402ym4mb.vercel.app',
+];
 
 export const MESSAGES = {
   COUPON: {
