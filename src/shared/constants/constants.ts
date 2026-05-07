@@ -1,7 +1,11 @@
 export const COUPON_TYPES = ['PERCENT', 'FLAT'] as const;
 export type CouponType = (typeof COUPON_TYPES)[number];
 
-export const REQUIREMENT_TYPES = ['Service', 'Product', 'Consultation'] as const;
+export const REQUIREMENT_TYPES = [
+  'Service',
+  'Product',
+  'Consultation',
+] as const;
 export type RequirementType = (typeof REQUIREMENT_TYPES)[number];
 
 export const DATABASE_COLLECTIONS = {
@@ -17,7 +21,8 @@ export const THROTTLE_CONFIG = {
 export const LEAD_DUPLICATE_WINDOW_MS = 5 * 60 * 1000; // 5 minutes
 
 export const DEFAULT_PORT = 3000;
-export const DEFAULT_CORS_ORIGIN = 'http://localhost:5173';
+export const DEFAULT_CORS_ORIGIN =
+  process.env.CORS_ORIGIN || 'http://localhost:5173';
 
 export const MESSAGES = {
   COUPON: {
