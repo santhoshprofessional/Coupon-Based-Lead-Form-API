@@ -9,7 +9,7 @@ export class CouponsRepository {
   constructor(
     @InjectModel(DATABASE_COLLECTIONS.COUPONS)
     private readonly couponModel: Model<MongoCoupon>,
-  ) {}
+  ) { }
 
   async findCouponByCode(code: string) {
     return this.couponModel.findOne({ code }).lean();
@@ -19,7 +19,7 @@ export class CouponsRepository {
     return this.couponModel.findOneAndUpdate(
       { code },
       { $inc: { usedCount: 1 } },
-      { new: true },
+      { returnDocument: 'after' }
     );
   }
 

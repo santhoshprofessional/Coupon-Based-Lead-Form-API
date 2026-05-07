@@ -54,6 +54,10 @@ export const MongoCouponSchema =
         type: Boolean,
         default: true,
       },
+      isFirstTimeOnly: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     {
@@ -72,4 +76,5 @@ export interface MongoCoupon extends Document {
   usageLimit: number;
   usedCount: number;
   isActive: boolean;
+  isFirstTimeOnly: boolean;
 }

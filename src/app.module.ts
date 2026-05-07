@@ -21,7 +21,7 @@ import { THROTTLE_CONFIG } from './shared/constants/constants';
         configService: ConfigService,
       ) => {
         const uri = configService.get<string>('MONGODB_URL');
-        console.log('URI:', uri);
+        // console.log('URI:', uri);
         if (!uri) {
           throw new Error('MONGODB_URL is not defined in .env file');
         }

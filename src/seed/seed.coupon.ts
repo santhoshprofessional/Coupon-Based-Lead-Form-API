@@ -1,5 +1,3 @@
-import { Model } from 'mongoose';
-import { CreateCouponSchema } from '../shared/zod/coupon.schema';
 
 export const couponSeedData = [
   {
@@ -12,6 +10,7 @@ export const couponSeedData = [
     usedCount: 0,
     expiryDate: new Date('2026-12-31'),
     isActive: true,
+    isFirstTimeOnly: false,
   },
   {
     code: 'FLAT100',
@@ -23,6 +22,7 @@ export const couponSeedData = [
     usedCount: 0,
     expiryDate: new Date('2026-12-31'),
     isActive: true,
+    isFirstTimeOnly: false,
   },
   {
     code: 'NEWUSER',
@@ -34,6 +34,7 @@ export const couponSeedData = [
     usedCount: 0,
     expiryDate: new Date('2026-12-31'),
     isActive: true,
+    isFirstTimeOnly: true,
   },
   {
     code: 'EXPIRE50',
@@ -45,5 +46,6 @@ export const couponSeedData = [
     usedCount: 0,
     expiryDate: new Date('2025-12-31'),
     isActive: true,
+    isFirstTimeOnly: false,
   },
 ];

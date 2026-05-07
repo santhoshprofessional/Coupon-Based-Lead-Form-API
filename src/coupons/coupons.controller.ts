@@ -1,29 +1,41 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Post,
+} from '@nestjs/common';
 import { CouponsService } from './coupons.service';
 import { ValidateCouponDto } from '../shared/zod/coupon.schema';
 
 @Controller('coupons')
 export class CouponsController {
-  constructor(private readonly couponsService: CouponsService) {}
 
-  @Post('validate')
-  async validateCoupon(
-    @Body()
-    body: ValidateCouponDto,
-  ) {
-    const coupon = await this.couponsService.validateCoupon(body);
+    constructor(
+        private readonly couponsService: CouponsService,
+    ) { }
 
-    const discountData = this.couponsService.calculateCouponDiscount(
-      body.budgetRange,
-      coupon,
-    );
+    @Post('validate')
+    async validateCoupon(
+        @Body()
+        body: ValidateCouponDto,
+    ) {
 
-    return {
-      success: true,
+        const coupon =
+            await this.couponsService
+                .validateCoupon(body);
 
-      couponCode: coupon.code,
+        const discountData =
+            this.couponsService
+                .calculateCouponDiscount(
+                    body.budgetRange,
+                    coupon,
+                );
 
-      ...discountData,
-    };
-  }
+        return {
+            success: true,
+
+            couponCode: coupon.code,
+
+            ...discountData,
+        };
+    }
 }

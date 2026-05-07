@@ -58,6 +58,10 @@ export const CreateCouponSchema = z.object({
   isActive: z
     .boolean()
     .default(true),
+
+  isFirstTimeOnly: z
+    .boolean()
+    .default(false),
 });
 
 export const ValidateCouponSchema =
@@ -83,6 +87,10 @@ export const ValidateCouponSchema =
           'Budget must be greater than 0',
         ),
     ),
+
+    email: z
+      .string()
+      .email('Invalid email address'),
   });
 
 

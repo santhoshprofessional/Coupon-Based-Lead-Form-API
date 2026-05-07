@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MongoLeadSchema } from '../shared/mongoose/lead.schema';
 import { LeadsController } from './leads.controller';
@@ -15,7 +15,7 @@ import { DATABASE_COLLECTIONS } from '../shared/constants/constants';
         schema: MongoLeadSchema,
       },
     ]),
-    CouponsModule,
+    forwardRef(() => CouponsModule),
   ],
 
   controllers: [LeadsController],

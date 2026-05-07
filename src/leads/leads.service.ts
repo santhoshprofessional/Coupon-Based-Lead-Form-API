@@ -40,6 +40,7 @@ export class LeadsService {
         couponCode: leadModel.couponCode,
         requirementType: leadModel.requirementType,
         budgetRange: leadModel.budgetRange,
+        email: leadModel.email,
       });
 
       const discountData = this.couponsService.calculateCouponDiscount(
