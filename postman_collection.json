@@ -1,0 +1,116 @@
+{
+  "info": {
+    "name": "Coupon-Based Lead Form API",
+    "description": "API collection for creating coupons, validating coupons, and submitting leads.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Coupons",
+      "item": [
+        {
+          "name": "Create Coupon",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"SAVE10\",\n  \"type\": \"PERCENT\",\n  \"value\": 10,\n  \"minOrderValue\": 500,\n  \"applicableOn\": [\"Service\"],\n  \"usageLimit\": 100,\n  \"expiryDate\": \"2026-12-31T23:59:59Z\",\n  \"isActive\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/coupons",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["coupons"]
+            }
+          }
+        },
+        {
+          "name": "Validate Coupon",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"couponCode\": \"SAVE10\",\n  \"requirementType\": \"Service\",\n  \"budgetRange\": 1000\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/coupons/validate",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["coupons", "validate"]
+            }
+          }
+        },
+        {
+          "name": "Get All Coupons",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/coupons",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["coupons"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Leads",
+      "item": [
+        {
+          "name": "Submit Lead",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"phone\": \"9876543210\",\n  \"email\": \"john.doe@example.com\",\n  \"city\": \"Chennai\",\n  \"requirementType\": \"Service\",\n  \"budgetRange\": 1000,\n  \"message\": \"Looking for a consultation.\",\n  \"couponCode\": \"SAVE10\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/leads",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["leads"]
+            }
+          }
+        },
+        {
+          "name": "Get All Leads",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/leads",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["leads"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
